@@ -12,7 +12,8 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 
 # 1. Memuat Dataset
-path = 'C:\\Users\\User\\Documents\chiara\PROJECT UAS PEMROSESAN TEXT\\Data Resep Makanan.csv'
+# Mendapatkan jalur direktori tempat skrip Python berada
+path = os.path.join(os.getcwd(), 'Data Resep Makanan.csv')
 data = pd.read_csv(path)
 
 # 2. Pra-pemrosesan
@@ -105,7 +106,8 @@ if 'user_input' in st.session_state:
     
     st.header("Hasil Rekomendasi")
     for index, row in results.iterrows():
-        image_folder = 'C:/Users/dell/latihan/tugas/text kelompok 9/Food Images'
+        # Menentukan path folder gambar secara eksplisit
+        image_folder = os.path.join(os.getcwd(), 'Food Images')
         possible_extensions = ['.jpg', '.png', '.jpeg']
         img_path = None
         for ext in possible_extensions:
